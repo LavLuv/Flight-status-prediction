@@ -1,0 +1,60 @@
+
+total 38 features
+
+-> training features:-
+
+1) DayOfWeek
+2) Operating_Airline
+3) Tail_Number
+4) OriginAirportID
+5) OriginCityName
+6) OriginStateName
+7) DestAirportID
+8) DestCityName
+9) DestStateName
+10) CRSDepTime
+11) DepTime
+12) DepDelay
+13) DepDelayMinutes
+14) DepDel15
+15) DepartureDelayGroups
+16) DepTimeBlk
+17) WheelsOff
+18) TaxiOut
+19) WheelsOn
+20) TaxiIn
+21) ArrTime
+22) CRSArrTime
+23) ArrDelay
+24) ArrDelayMinutes
+25) ArrDel15
+26) ArrivalDelayGroups
+27) ArrTimeBlk
+28) Cancelled
+29) CancellationCode
+30) CRSElapsedTime
+31) ActualElapsedTime
+32) AirTime
+33) Distance
+34) DistanceGroup
+35) CarrierDelay
+36) WeatherDelay
+37) SecurityDelay
+38) LateAircraftDelay
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

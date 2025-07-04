@@ -1,0 +1,163 @@
+-> DayOfWeek: day of the flight
+
+-> Operating_Airline: the airline operating the flight
+
+-> Tail_Number: the ID of the specific aircraft/plane of the flight (unique to the plane)
+
+-> OriginAirportID: ID of the origin airport
+
+-> OriginCityName: name of the origin city
+
+-> OriginStateName: name of the origin state (state of the origin city)
+
+-> DestAirportID: ID of the destination airport
+
+-> DestCityName: name of the destination city
+
+-> DestStateName: name of the destination state (state of the destination city)
+
+(CRS: Computer Reservation System)
+
+-> CRSDepTime: CRS scheduled departure time from the gate (scheduled departure time)(as per local time 'hhmm')
+
+-> DepTime: actual departure time from the gate (as per local time 'hhmm')
+
+-> DepDelay: difference in minutes between scheduled and actual departure time. Early departures shown as negative numbers
+
+(DepDelay = DepTime - CRSDepTime)
+
+-> DepDelayMinutes: difference in minutes between scheduled and actual departure time. Early departures shown as 0
+
+(
+if DepTime < CRSDepTime:
+	DepDelayMinutes = 0
+
+if DepTime >= CRSDepTime:
+	DepDelayMinutes = DepTime - CRSDepTime
+)
+
+-> DepDel15: Departure Delay Indicator (if delay is greater than or equal to 15 minutes)
+
+(
+if DepDelayMinutes >= 15:
+	DepDel15 = 1 (Yes/True)
+
+if DepDelayMinutes < 15:
+	DepDel15 = 0 (No/False)
+)
+
+-> DepartureDelayGroups: chunks/blocks of 15 minutes of delay/early arrival of the flight at the origin 
+
+(
+DepartureDelayGroups = math.floor(DepDelay/15)
+)
+
+-> DepTimeBlk: hourly time interval in which the flight actually departed ('hh00-hh59' format)
+
+(Blk: block)
+
+-> WheelsOff: Wheels Off Time (the time when the flight departs from the runway)(as per local time 'hhmm')
+
+-> TaxiOut: the time (in minutes) it takes for a flight to depart from the time it leaves the gate to the time it actually takes off from the runway
+
+(TaxiOut = WheelsOff - DepTime) (= 'wheels off time' - 'gate out time')
+
+-> WheelsOn: Wheels On Time (the time when the flight arrives at the runway of the destination)(as per local time 'hhmm')
+
+-> TaxiIn: the time (in minutes) it takes for a flight to arrive from the time it lands at the runway to the time it actually arrives at the gate (of the destination)
+
+-> ArrTime: actual arrival time at the gate of the destination (as per local time 'hhmm')
+
+(ArrTime = WheelsOn + TaxiIn)
+
+-> CRSArrTime: CRS scheduled arrival time at the gate of the destination (scheduled arrival time)(as per local time 'hhmm')
+
+-> ArrDelay: difference in minutes between scheduled and actual arrival time. Early arrivals shown as negative numbers
+
+(ArrDelay = ArrTime - CRSArrTime)
+
+-> ArrDelayMinutes: difference in minutes between scheduled and actual arrival time. Early arrivals shown as 0
+
+(
+if ArrTime < CRSArrTime:
+	ArrDelayMinutes = 0
+
+if ArrTime >= CRSArrTime:
+	ArrDelayMinutes = ArrTime - CRSArrTime
+)
+
+-> ArrDel15: Arrival Delay Indicator (if delay is greater than or equal to 15 minutes)
+
+(
+if ArrDelayMinutes >= 15:
+	ArrDel15 = 1 (Yes/True)
+
+if ArrDelayMinutes < 15:
+	ArrDel15 = 0 (No/False)
+)
+
+-> ArrivalDelayGroups: chunks/blocks of 15 minutes of delay/early arrival of the flight at the destination
+
+(
+ArrivalDelayGroups = math.floor(ArrDelay/15)
+)
+
+-> ArrTimeBlk: hourly time interval in which the flight actually arrived ('hh00-hh59' format)
+
+(Blk: block)
+
+-> Cancelled: whether the flight was cancelled or not
+
+(
+if cancelled, Cancelled = 1 (Yes/True)
+
+if not cancelled, Cancelled = 0 (No/False)
+)
+
+-> CancellationCode: specifies the reason for cancellation of the flight
+
+-> CRSElapsedTime: CRS elapsed time in minutes of the flight (difference between CRS arrival time and CRS departure time)
+
+(CRSElapsedTime = CRSArrTime - CRSDepTime)
+
+-> ActualElapsedTime: actual elapsed time in minutes of the flight (difference between actual arrival time and actual departure time)
+
+(ActualElapsedTime = ArrTime - DepTime)
+
+-> AirTime: flight time in minutes (the duration for which the flight was airborne)
+
+(AirTime = WheelsOn - WheelsOff)
+
+-> Distance: distance in miles between origin airport and destination airport (distance covered by the flight)(might not necessarily be the same things!)
+
+-> DistanceGroup: chunks/blocks of 250 miles distance covered by the flight
+
+(DistanceGroup = math.floor(Distance/250) + 1)
+
+-> CarrierDelay: carrier delay in minutes (the sub-duration of flight delay caused by circumstances within the airline's control, for eg:- aircraft cleaning, aircraft damage, crew problems, baggage loading, fueling, maintenance, etc.)
+
+-> WeatherDelay: weather delay in minutes (the sub-duration of flight delay caused due to bad weather)
+
+-> SecurityDelay: security delay in minutes (the sub-duration of flight delay caused due to security checks and issues)
+
+-> LateAircraftDelay: late aircraft delay in minutes (the sub-duration of flight caused due to that flight being delayed due to the late arrival of the aircraft assigned to operate that particular flight. This flight got delayed due to a delay of the previous flight of that aircraft)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

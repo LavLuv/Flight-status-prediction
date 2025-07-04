@@ -1,0 +1,11 @@
+
+-> The dataset has been downloaded from Kaggle
+
+URL: https://www.kaggle.com/datasets/robikscube/flight-delay-dataset-20182022
+
+-> Source of dataset:
+
+This data has been extracted from the Marketing Carrier On-Time Performance (Beginning January 2018) data table of the "On-Time" database from the 'TranStats data library'.
+It contains data of the years 2018, 2019, 2020, 2021 and 2022
+
+URL: https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D 
